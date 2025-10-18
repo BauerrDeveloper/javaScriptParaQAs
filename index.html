@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Handlee&display=swap" rel="stylesheet">
+    <title>Star Wars</title>
+</head>
+<body>
+    <div id="app">
+        
+        <div class="top">
+            <div>
+                <h1> {{ title }} </h1>
+                <small>Olá, {{ userName }}! <br> Seja bem vindo ao mundo Star Wars Lego!</small>
+            </div>
+            
+            <form action="">
+                <input type="text" v-model="searchName" placeholder="Busca por nome..."/>
+                <button type="button" @click.prevent="search">Buscar</button>    
+            </form>
+        </div>
+
+        <div class="characters">
+            <div class="item" v-for="item of characters">
+                <img :src="item.image" :alt="item.alt"> 
+                <p>{{ item.name }}</p>
+                <span @click="like(item.name)" class="like material-symbols-outlined" >
+                    heart_plus
+                </span>
+                <span @click="remove(item.id)" class="delete material-symbols-outlined">
+                    delete
+                </span>
+            </div>
+            
+        </div>
+    </div>
+    <script type:"text/javascript" src="js/vue.js"></script>
+    <script type:"text/javascript" src="js/app.js"></script>
+</body>
+</html>
+
+
+<!-- v-for="item of characters" é uma diretiva do Vue.js que cria um loop para iterar sobre a lista "characters" e renderizar um elemento para cada item na lista.
+// :src e :alt são atalhos para v-bind:src e v-bind:alt, que vinculam dinamicamente os atributos "src" e "alt" das imagens aos valores correspondentes em cada objeto "item" da lista "characters".
+// {{ item.name }} é uma interpolação que exibe o valor da propriedade "name" do objeto "item" dentro do parágrafo -->
